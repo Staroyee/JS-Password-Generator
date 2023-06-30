@@ -13,7 +13,6 @@ var chosenCharTypes = "";
 // 2. Create a 'generatePassword' function to be used within the 'writePassword' function.
 function generatePassword() {
 
-  
 // 3. Create variables and give values to elements.
   generateBtn.value === "";
   var random = "";
@@ -43,10 +42,37 @@ if (passwordLength < 8 || passwordLength > 128) {
   var specialChar = confirm("Click OK to include special characters.");
 }
 
+// 6. Add user selected values to the variable.
+/*Takes the user selected criteria and add them to the "chosenCharTypes" variable*/
+if (lowercaseChar === true) {
+  chosenCharTypes += lowercaseAlphabet;
 
+} if (uppercaseChar === true) {
+  chosenCharTypes += uppercaseAlphabet;
+
+} if (number === true) {
+  chosenCharTypes += numbers;
+
+} if (specialChar === true) {
+  chosenCharTypes += specialCharacters;
 }
 
-// 11. Write password to the #password input
+// 7. Use the for loop and Math methods to add randomness to the variable.
+/*Takes the 'random' variable and adds the 'chosenCharTypes' variables values to it.The Math.floor & Math.random methods are used to select a random character from the 'chosenCharTypes' variable whilst keeping within the user selected 'length' of the password.*/
+for (var i = 0; i < passwordLength; i++) {
+  random += chosenCharTypes.charAt(Math.floor(Math.random() * chosenCharTypes.length));
+}
+
+// 8. Gives the 'generateBtn' variable the random value.
+generateBtn.value = random;
+
+
+
+// 9. Use the 'return' statement to end the function and return the value to the function caller.
+return generateBtn.value
+}
+
+// 10. Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -55,5 +81,5 @@ function writePassword() {
 
 }
 
-// 12. Add event listener to generate button
+// 11. Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
