@@ -1,5 +1,5 @@
 // Assignment Code
-// Query Selectors to target the elements within the HTML:
+// Query Selector using the id (#) to target the element within the HTML.
 // generateBtn = the 'button' element
 var generateBtn = document.querySelector("#generate");
 
