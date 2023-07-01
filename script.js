@@ -66,13 +66,14 @@ for (var i = 0; i < passwordLength; i++) {
 // 8. Gives the 'generateBtn' variable the random value.
 generateBtn.value = random;
 
+// 9. Makes sure the user selected criteria resets on each button click.
+chosenCharTypes = "";
 
-
-// 9. Use the 'return' statement to end the function and return the value to the function caller.
+// 10. Use the 'return' statement to end the function and return the value to the function caller.
 return generateBtn.value
 }
 
-// 10. Write password to the #password input
+// 11. Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -81,5 +82,5 @@ function writePassword() {
 
 }
 
-// 11. Add event listener to generate button
+// 12. Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
